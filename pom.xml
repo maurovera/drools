@@ -15,13 +15,29 @@
 	</properties>
 
 	<build>
-		
+
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-		
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<configuration>
+						<forkMode>once</forkMode>
+						<workingDirectory>target</workingDirectory>
+						<argLine>-Djava.library.path=${basedir}/src/main/resources/</argLine>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+
+
 	</build>
 
 
@@ -85,7 +101,15 @@
 			<version>1.2.14</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>google-lib</groupId>
+			<artifactId>jsmile-prueba</artifactId>
+			<version>1.0</version>
+		</dependency>
 
 	</dependencies>
+
+
+
+
 </project>
